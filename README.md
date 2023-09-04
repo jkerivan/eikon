@@ -2,13 +2,8 @@ Backend Takehome Project
 
 Prerequisites
 
-    Docker: Ensure Docker is installed on your machine. If not, you can download it from Docker's official website.
+    Docker: Ensure Docker is installed on your machine. If not, you can download it from Docker's official website https://www.docker.com/.
     
-    Python Virtual Environment: Set up a Python virtual environment by following these steps:
-
-        python3 -m venv .env
-        source .env/bin/activate
-        pip install -r requirements.txt
 
 Running the Application
 
@@ -34,8 +29,15 @@ Running the Application
         Note: The script has backend_takehome-db-1 hard-coded as the container name. If your container name differs, ensure you modify the script accordingly.
 
 
-If you'd like to restart from scratch you can use:
+If you'd like to restart from scratch you can use the CMD below to take down the container along with its volume to start with fresh DB.
 
     docker-compose down -v
 
-to take down the container along with its volume.
+
+
+*NOTE*
+
+    1.  Currently for if there is a tie for user most common compound it will take the first in the list.  This could be  a problem and would need to be understand use case more thoroughly.
+
+    2.
+

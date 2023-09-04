@@ -8,11 +8,7 @@ db_name = os.getenv("POSTGRES_DB")
 db_user = os.getenv("POSTGRES_USER")
 db_pass = os.getenv("POSTGRES_PASSWORD")
 
-print("DB User:", os.getenv("POSTGRES_USER"))
-print("DB Password:", os.getenv("POSTGRES_PASSWORD"))
-print("DB Name:", os.getenv("POSTGRES_DB"))
-
-DATABASE_URL = f"postgresql+asyncpg://eikon:eikon123@db/eikondb"
+DATABASE_URL = f"postgresql+asyncpg://{db_user}:{db_pass}@db/{db_name}"
 
 class AsyncDatabaseSession:
 

@@ -2,15 +2,15 @@ version: '3'
 services:
   db:
     image: postgres
-    environment:
-        POSTGRES_DB: eikondb
-        POSTGRES_USER: eikon
-        POSTGRES_PASSWORD: eikon123
+    env_file:
+      - .env
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
   web:
     build: .
+    env_file:
+      - .env
     volumes:
       - .:/app
     ports:
