@@ -12,6 +12,7 @@ Running the Application
         chmod +x run_docker.sh run_etl.sh query_db.sh
 
     With Docker:
+    
         Use the provided script to run the application with Docker:
 
             ./run_docker.sh
@@ -19,6 +20,7 @@ Running the Application
         This script leverages docker-compose.yml to orchestrate a service, which is made up of a FastAPI application. The backend uses PostgreSQL as the database and SQLAlchemy for the Object Relational Mapping (ORM) layer.
 
     Interacting with the API:
+    
         Execute the ETL process by running the following script:
 
             ./run_etl.sh
@@ -26,6 +28,7 @@ Running the Application
         This script calls the API using a curl command targeting http://127.0.0.1:8000/etl/. A successful call will display {"status":"success"} in the terminal.
 
     Querying the Database within the Docker Container:
+    
         To query the database directly from within the Docker container, use:
 
             ./query_db.sh
