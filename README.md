@@ -34,10 +34,34 @@ If you'd like to restart from scratch you can use the CMD below to take down the
     docker-compose down -v
 
 
+Important Considerations for the Current Implementation:
 
-*NOTE*
+    Handling Ties in Common Compounds:
 
-    1.  Currently for if there is a tie for user most common compound it will take the first in the list.  This could be  a problem and would need to be understand use case more thoroughly.
+        Current Scenario: In cases of a tie for the most common compound associated with a user, the system arbitrarily selects the first compound from the list.
 
-    2.
+        Potential Implications: This might not always yield the desired result, and the specific requirements should be clarified. The approach should be tailored accordingly to ensure data accuracy and user expectations.
+
+    Data Loading Approach in the ETL Controller:
+
+        Current Scenario: The ETL process loads the entire dataset into memory before processing.
+
+        Potential Implications: While this is feasible for the current dataset size, it might become a bottleneck for larger datasets. If data volumes increase significantly, a batching mechanism would be more efficient and prevent memory exhaustion.
+
+    Atomicity in Database Object Creation:
+
+        Current Scenario: Objects are created based on their models. For instance, all User objects are created first, followed by all Experiment objects, and then all Compound objects. A commit to the database is made after each model's objects have been created.
+
+        Potential Implications: Grouping objects by model type before committing can optimize performance but might also expose the system to partial data scenarios if there's an interruption after one model's objects are committed but before the others. Balancing performance optimization with data integrity is crucial.
+
+    Error Handling:
+
+        Current Scenario: The existing code primarily follows the "happy path" without comprehensive error or exception handling.
+
+        Potential Implications: In real-world scenarios, unexpected issues can arise. The system should be robust enough to handle errors gracefully. This could include strategies like rolling back in case of failures, or providing detailed logs and feedback about specific data points or operations that encountered issues.
+
+
+
+
+
 
