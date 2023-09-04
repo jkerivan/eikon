@@ -84,7 +84,8 @@ Important Considerations for the Current Implementation:
 
         Potential Implications: In real-world scenarios, unexpected issues can arise. 
                                 The system should be robust enough to handle errors gracefully. 
-                                This could include strategies like rolling back in case of failures, or providing detailed logs and feedback about specific data points or operations that encountered issues.
+                                This could include strategies like rolling back in case of failures, 
+                                or providing detailed logs and feedback about specific data points or operations that encountered issues.
 
 
 
