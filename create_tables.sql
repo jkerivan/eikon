@@ -6,7 +6,7 @@ CREATE TABLE users (
     email VARCHAR NOT NULL, 
     signup_date DATE, 
     total_experiments INTEGER, 
-    avg_experiments INTEGER, 
+    avg_experiments FLOAT, 
     common_compound VARCHAR, 
     PRIMARY KEY (user_id), 
     UNIQUE (name), 

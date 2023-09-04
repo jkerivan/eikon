@@ -11,7 +11,7 @@ class Users(SQLModel, TimeMixin, table=True):
     email: str = Field(unique=True)
     signup_date: datetime.date = Field(None, nullable=True)
     total_experiments: int = Field(None, nullable=True)
-    avg_experiments: int = Field(None, nullable=True)
+    avg_experiments: float = Field(None, nullable=True)
     common_compound: str = Field(None, nullable=True)
     experiments: List[Experiment] = Relationship(back_populates="users")
 
