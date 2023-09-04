@@ -7,6 +7,10 @@ Prerequisites
 
 Running the Application
 
+    Make sure the bash files have execution privleges:
+
+        chmod +x run_docker.sh run_etl.sh query_db.sh
+
     With Docker:
         Use the provided script to run the application with Docker:
 
@@ -26,7 +30,10 @@ Running the Application
 
             ./query_db.sh
 
-        Note: The script has backend_takehome-db-1 hard-coded as the container name. If your container name differs, ensure you modify the script accordingly.
+        NOTE: The script has eikon-db-1 hard-coded as the container name. If your container name differs, ensure you modify the script accordingly.  It is usually
+              something along the lines of {current_workspace}-db-1.
+
+            Update script to: docker exec -it {your-db-container-name} psql -U eikon -d eikondb -x -c "SELECT * FROM users;"
 
 
 If you'd like to restart from scratch you can use the CMD below to take down the container along with its volume to start with fresh DB.
